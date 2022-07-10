@@ -12,10 +12,10 @@ const App = () => {
     <Router>
       <Box width ="400px" sx={{width: {xl: '1488px'}}} m="auto">
         <Navbar></Navbar>
-          <Routes>
-            <Route exact path='/' element={<Home></Home>}></Route>
-            <Route exact path='/exercise/:id' element={<ExerciseDetail></ExerciseDetail>}></Route>
-          </Routes>
+        <Routes>
+          <Route exact path='/' element={<Home></Home>}></Route>
+          <Route exact path='/exercise/:id' element={<ExerciseDetail></ExerciseDetail>}></Route>
+        </Routes>
         <Footer></Footer>
       </Box>
     </Router>
