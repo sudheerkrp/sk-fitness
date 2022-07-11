@@ -21,10 +21,11 @@ const SearchExercises = ({setExercises, bodyPart, setBodyPart}) => {
 		if(search)
 		{
 			const exercisesData = await fetchData(url, exerciseOptions);
-			console.log(exercisesData);
-			const searchedExercise = exercisesData.filter((exercise)=>{exercise.name.toLowerCase().includes(search) || exercise.target.toLowerCase().includes(search) || exercise.equipment.toLowerCase().includes(search) || exercise.bodyPart.toLowerCase().includes(search)});
-			setSearch("");
+			// console.log(exercisesData);
+			const searchedExercise = exercisesData.filter((exercise)=>(exercise.name.toLowerCase().includes(search) || exercise.target.toLowerCase().includes(search) || exercise.equipment.toLowerCase().includes(search) || exercise.bodyPart.toLowerCase().includes(search)));
+			// setSearch("");
 			setExercises(searchedExercise);
+			console.log(searchedExercise);
 		}
 	}
   return (
