@@ -5,9 +5,8 @@ import HorizontalScrollbar from './HorizontalScrollbar';
 
 const url = 'https://exercisedb.p.rapidapi.com/exercises';
 
-const SearchExercises = () => {
+const SearchExercises = ({setExercises, bodyPart, setBodyPart}) => {
 	const [search, setSearch] = useState("");
-	const [exercises, setExercises] = useState([]);
 	const [bodyParts, setBodyParts] = useState([]);
 
 	useEffect(()=>{
@@ -22,7 +21,7 @@ const SearchExercises = () => {
 		if(search)
 		{
 			const exercisesData = await fetchData(url, exerciseOptions);
-			// console.log(exercisesData);
+			console.log(exercisesData);
 			const searchedExercise = exercisesData.filter((exercise)=>{exercise.name.toLowerCase().includes(search) || exercise.target.toLowerCase().includes(search) || exercise.equipment.toLowerCase().includes(search) || exercise.bodyPart.toLowerCase().includes(search)});
 			setSearch("");
 			setExercises(searchedExercise);
@@ -38,7 +37,7 @@ const SearchExercises = () => {
         <Button className='search-btn' sx={{backgroundColor: '#FF2625', color:'#fff', textTransform:'none', width:{lg:'175px', xs:'80px'}, fontSize:{lg:'20px', xs:'14px'}, height:'56px', position:'absolute', right:'0'}}onClick={handelSearch}>Search</Button>
         </Box>
 				<Box sx={{position:'relative', width:'100%', p:'20px'}}>
-					<HorizontalScrollbar data ={bodyParts}></HorizontalScrollbar>
+					<HorizontalScrollbar data ={bodyParts} bodyPart={bodyPart} setBodyParts={setBodyPart}></HorizontalScrollbar>
 				</Box>
     </Stack>
   );
